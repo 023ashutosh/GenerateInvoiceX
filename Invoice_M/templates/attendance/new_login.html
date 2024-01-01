@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <div class="content-section" >
+        <form method="POST" action="" style="margin-top: 70px;">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="i-name">Invoice New Login</legend>
+                
+                
+                
+                <!-- PERSONAL DETAILS -->
+                <div class="form-group">
+                    {{ form.Emp_id.label(class="form-control-label") }}
+                    {% if form.Emp_id.errors %}
+                    {{ form.Emp_id(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Emp_id.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                                <div>
+                                    <input type="text" class="form-control form-control-lg" value="{{ emp_id }}" >
+                                </div>
+                    {% endif %}
+                </div>
+                
+                
+                
+                <div class="form-group">
+                    {{ form.First_name.label(class="form-control-label") }}
+                    {% if form.First_name.errors %}
+                    {{ form.First_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.First_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.First_name(class="form-control form-control-lg") }}
+                    {% endif %}
+        
+                <div class="form-group">
+                    {{ form.Last_name.label(class="form-control-label") }}
+                    {% if form.Last_name.errors %}
+                    {{ form.Last_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Last_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Last_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Username.label(class="form-control-label") }}
+                    {% if form.Username.errors %}
+                    {{ form.Username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Email.label(class="form-control-label") }}
+                    {% if form.Email.errors %}
+                    {{ form.Email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Email(class="form-control form-control-lg", value="@gmail.com") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Phone_No.label(class="form-control-label") }}
+                    {% if form.Phone_No.errors %}
+                    {{ form.Phone_No(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Phone_No.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Phone_No(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Password.label(class="form-control-label") }}
+                    {% if form.Password.errors %}
+                    {{ form.Password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Confirm_Password.label(class="form-control-label") }}
+                    {% if form.Confirm_Password.errors %}
+                    {{ form.Confirm_Password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Confirm_Password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Confirm_Password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- EMPLYMENT DETAILS -->
+                <div class="form-group">
+                    {{ form.Department.label(class="form-control-label") }}
+                    {{ form.Department(class="form-control form-control-lg", value="Start-Up") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.Post.label(class="form-control-label") }}
+                    {{ form.Post(class="form-control form-control-lg", value="Employee") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.Salary.label(class="form-control-label") }}
+                    {{ form.Salary(class="form-control form-control-lg", value="Rs.") }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.Location.label(class="form-control-label") }}
+                    {{ form.Location(class="form-control form-control-lg", value="Lucknow") }}
+                </div>
+                
+
+            </fieldset>
+            
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+
+{% endblock content %}
+    

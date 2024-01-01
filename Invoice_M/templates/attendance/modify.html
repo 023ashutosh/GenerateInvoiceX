@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    {% if not user_to_modify %}
+        <!-- Search Bar -->
+        <form method="GET" action="{{ url_for('modify') }}">
+            <div class="i-name">
+                <label for="emailSearch">Search by Email:</label>
+                <input type="text" class="form-control" id="emailSearch" name="emailSearch" placeholder="Enter Email">
+                <button type="submit" class="btn btn-primary mt-2">Search</button>
+            </div>
+        </form>
+    {% endif %}
+
+    {% if user_to_modify %}
+        <!-- User Information Form -->
+        <form class="i-name" method="POST" action="{{ url_for('modify') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group ">
+                {{ form.Email.label(class="form-label") }}
+                {{ form.Email(class="form-control", value=user_to_modify.Email, readonly=True) }}
+            </div>
+            <div class="form-group">
+                {{ form.Username.label(class="form-label") }}
+                {{ form.Username(class="form-control", value=user_to_modify.Username) }}
+            </div>
+            <div class="form-group">
+                {{ form.Phone_No.label(class="form-label") }}
+                {{ form.Phone_No(class="form-control", value=user_to_modify.Phone_No) }}
+            </div>
+            <div class="form-group">
+                {{ form.Department.label(class="form-label") }}
+                {{ form.Department(class="form-control", value=user_to_modify.Department) }}
+            </div>
+            <div class="form-group">
+                {{ form.Post.label(class="form-label") }}
+                {{ form.Post(class="form-control", value=user_to_modify.Post) }}
+            </div>
+            <div class="form-group">
+                {{ form.Salary.label(class="form-label") }}
+                {{ form.Salary(class="form-control", value=user_to_modify.Salary) }}
+            </div>
+            <div class="form-group">
+                {{ form.Location.label(class="form-label") }}
+                {{ form.Location(class="form-control", value=user_to_modify.Location) }}
+            </div>
+        
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    {% else %}
+        <p>No employee found with the provided email.</p>
+    {% endif %}
+</div>
+
+{% endblock content %}

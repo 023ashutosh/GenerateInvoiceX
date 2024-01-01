@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #e5e7eb;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+#menu {
+  padding-top: 25px;
+  background: #111827;
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#menu .logo_text,
+#menu .logo_text a {
+  color: #ffffff;
+  padding: 50px 0 0 50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#menu .items {
+  margin-top: 40px;
+}
+
+#menu .items li {
+  list-style: none;
+  padding: 15px 0;
+  transition: 0.3s ease;
+}
+
+#menu .items li:hover {
+  background: #253047;
+  cursor: pointer;
+}
+
+#menu .items li:nth-child(1) {
+  border-left: 4px solid #ffffff;
+}
+
+#menu .items li i {
+  color: rgb(134, 141, 151);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  margin: 0 10px 0 25px;
+}
+
+#menu .items li:hover i,
+#menu .items li:hover a {
+  color: #f3f4f6;
+}
+
+#menu .items li a {
+  text-decoration: none;
+  color: rgb(134, 141, 151);
+  font-weight: 300px;
+  transition: 0.3s ease;
+}
+
+#interface {
+  width: calc(100% - 300px);
+  background-color: skyblue;
+  margin-left: 300px;
+  position: relative;
+}
+
+#interface .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 30px;
+  border-bottom: 3px solid #594ef7;
+  position: fixed;
+  width: calc(100% - 300px);
+}
+
+#interface .navigation .search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid #d7dbe6;
+  border-radius: 4px;
+}
+#interface .navigation .search i {
+  margin-right: 14px;
+}
+
+#interface .navigation .search input {
+  border: none;
+  outline: none;
+  font: 14px;
+}
+
+#interface .navigation .profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#interface .navigation .profile i,
+#interface .navigation .profile a {
+  margin-right: 15px;
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(30, 48, 80);
+}
+
+
+.i-name {
+  color: #000;
+  padding: 30px 30px 0 30px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 70px;
+}
+
+.values {
+  padding: 30px 30px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.values .val-box {
+  background: #fff;
+  width: 235px;
+  padding: 16px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+}
+
+.values .val-box i {
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.values .val-box:nth-child(1) i {
+  background: #7b74e7;
+}
+.values .val-box:nth-child(2) i {
+  background: #5c8af0;
+}
+.values .val-box:nth-child(3) i {
+  background: #e45d99;
+}
+.values .val-box:nth-child(4) i {
+  background: #64af5d;
+}
+
+.values .val-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.values .val-box span {
+  color: #828997;
+  font-size: 15px;
+}
+
+.board {
+  width: 94%;
+  margin: 30px 0 30px 30px;
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.board img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-top: 0px;
+}
+
+.board h5 {
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.board p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #787d8d;
+}
+
+.board .people {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
+  /* padding-top: 15px; */
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid #eef0f3;
+}
+
+thead td {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: #f9fafb;
+  text-align: start;
+  padding: 15px;
+}
+
+tbody tr td {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.active p {
+  background: #d7fada;
+  padding: 2px 10px;
+  display: inline-block;
+  border-radius: 40px;
+  color: #2b2b2b;
+}
+
+.edit a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #554cd1;
+  font-weight: 600;
+}
+
+
+
+

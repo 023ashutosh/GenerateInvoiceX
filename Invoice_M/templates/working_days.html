@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3 class="i-name">Working Days</h3>
+    {% if current_user.is_authenticated %}
+        <p>Current Working Days: {{ current_working_days }}</p>
+    {% endif %}
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.working_days.label }}
+        {{ form.working_days }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock content %}

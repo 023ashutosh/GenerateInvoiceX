@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img i-name" src="{{ image_file }}">
+      <div class="media-body">
+        <h2 class="account-heading i-name">{{ current_user.Username }}</h2>
+        <p class="text-secondary">{{ current_user.First_name }}</p>
+        <p class="text-secondary">{{ current_user.Emp_id }}</p>
+        <p class="text-secondary">{{ current_user.Email }}</p>
+        <p class="text-secondary">{{ current_user.Phone_No }}</p>
+
+      </div>
+    </div>
+    <!-- FORM HERE -->
+  </div>
+
+{% endblock content %}
+

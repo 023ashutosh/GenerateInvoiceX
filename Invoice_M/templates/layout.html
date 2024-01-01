@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2c5ffa71a0.js" ></script>
+    
+
+    
+    <title>The Receipt</title>
+
+</head>
+
+<body>
+  <section id="menu">
+    <div class="logo">
+      <h2>
+        <a class="logo_text" href="/">The Receipt</a>
+      </h2>
+    </div>
+
+          <div class="items">
+
+            <li>
+              <i class="fas fa-home"></i><a href="{{ url_for('home') }}"> Home</a>
+            </li>
+
+            <li>
+              <i class="fas fa-paperclip"></i><a  href="#"> Notices</a>
+            </li>
+
+            <li>
+              <i class="fas fa-phone"></i>
+              <a href="mailto:admin@test.com">Help/Support</a>
+            </li>
+            
+          
+            <li>
+              <i class="fas fa-bars"></i><a  href="#"> Settings</a>
+            </li>
+
+            {% if current_user.is_authenticated %}
+            <li>
+              <i class="fas fa-calendar-days"></i><a  href="{{ url_for('working_days') }}"> Update Working Days</a>
+            </li>
+
+            <li>
+              <i class="fas fa-clipboard-user"></i><a href="{{ url_for('attendance') }}"> Attendance</a>
+            </li>
+
+            <li>
+              <i class="fas fa-receipt"></i><a  href="{{ url_for('invoice') }}"> Invoice</a>
+            </li>
+
+            <li>
+              <i class="fas fa-user"></i><a href="{{ url_for('account') }}"> Account</a>
+            </li>
+
+            <li>
+              <i class="fas fa-right-from-bracket" style="color: red;"></i><a style="color: red;" href="{{ url_for('logout') }}"> LOGOUT</a>
+            </li>
+
+            {% else %}
+            <li>
+              <i class="fas fa-right-to-bracket"></i><a  href="{{ url_for('login') }}"> LOGIN</a>
+            </li>
+
+            {% endif %}
+
+          </div>
+        </section>
+
+
+        <section id="interface">
+
+          <div class="navigation">
+            
+            <div class="n1">
+              <div class="search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search"> 
+              </div>
+            </div>
+
+            <div class="profile">
+              <i class="fas fa-bell"></i>
+              {% if current_user.is_authenticated %}
+              <a href="{{ url_for('account') }}">
+              <i class="fas fa-user"></i>
+              </a>
+              {% else %}
+              <a href="{{ url_for('login') }}">
+              <i class="fas fa-user"></i>
+              </a>
+              {% endif %}
+            </div>
+
+          </div>
+
+          {% block content %}{% endblock %}
+          
+        </section>
+        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h3 class="i-name">Dashboard</h3>
+
+    <div class="values">
+        <div class="val-box">
+            <i class="fas fa-users"></i>
+            <div>
+                <h3>{{ total_users }}</h3>
+                <span>Total Users</span>
+            </div>
+        </div>
+
+        <div class="val-box">
+            <i class="fas fa-calendar-day"></i>
+            <div>
+                <h3>{{ current_working_days }}</h3>
+                <a href="{{ url_for('working_days') }}">    
+                <span>Working Days</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="val-box">
+            <i class="fas fa-clipboard-user"></i>
+            <div>
+                <h3>{{ today_date }}</h3>
+                <a  href="{{ url_for('invoice') }}">
+                <span>Invoice</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="val-box">
+            <i class="fas fa-money-bill"></i>
+            <div>
+                <h3>₹ {{ total_salary }}</h3>
+                <span>Total Revenue</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="board">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Title</td>
+                    <td>Department</td>
+                    <td>Location</td>
+                    <td>Emp ID</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for user in users %}
+                <tr>
+                    <td class="people">
+                        <img src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}" alt="">
+                        <!-- <img src="../static/profile_pics/1.jpg" alt=""> -->
+                        <div class="people-de">
+                            <h5>{{ user.First_name }}</h5>
+                            <p>{{ user.Email }}</p>
+                        </div>
+                    </td>
+
+                    <td class="people-des">
+                        <h5>{{ user.Post }}</h5>
+                        <!-- <p>{{ user.Location }}</p> -->
+                    </td>
+
+                    <td class="active"><p>{{ user.Department }}</p></td>
+
+                    <td class="role">
+                        <p>{{ user.Location }}</p>
+                    </td>
+
+                    <td class="edit"><p><a href="#">{{ user.Emp_id }}</a></p></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
+

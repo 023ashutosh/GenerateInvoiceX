@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <h1 class="i-name" style="margin-top: 70px">User List</h1>
+    <table border="1" >
+        <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Department</th>
+            <th>Post</th>
+            <th>Salary</th>
+            <th>Location</th>
+        </tr>
+    
+        {% for user in users %}
+            <tr>
+                <td>{{ user.Emp_id }}</td>
+                <td>{{ user.First_name }}</td>
+                <td>{{ user.Last_name }}</td>
+                <td>{{ user.Username }}</td>
+                <td>{{ user.Email }}</td>
+                <td>{{ user.Phone_No }}</td>
+                <td>{{ user.Department }}</td>
+                <td>{{ user.Post }}</td>
+                <td>{{ user.Salary }}</td>
+                <td>{{ user.Location }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+
+{% endblock content %}

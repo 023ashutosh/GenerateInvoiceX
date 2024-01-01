@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    {% if not user_to_modify %}
+        <!-- Search Bar -->
+        <form method="GET" action="{{ url_for('delete') }}">
+            <div class="i-name">
+                <label for="EmailSearch">Search by Email:</label>
+                <input type="text" class="form-control" id="EmailSearch" name="EmailSearch" placeholder="Enter Email">
+                <button type="submit" class="btn btn-primary mt-2">Search</button>
+            </div>
+        </form>
+    {% endif %}
+
+    {% if user_to_delete %}
+        <!-- User Information and Confirmation Form -->
+        <form method="POST" action="{{ url_for('delete') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.Email.label(class="form-label") }}
+                {{ form.Email(class="form-control", value=user_to_delete.Email, readonly=True) }}
+            </div>
+        
+            <p class="alert alert-warning">Are you sure you want to delete this entry?</p>
+
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    {% else %}
+        <p>No employee found with the provided email.</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

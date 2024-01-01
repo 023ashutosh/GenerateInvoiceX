@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <h3 class="i-name">Attendance</h3>
+
+        <div class="values">
+            <div class="val-box">
+                <div style="align-items: center;">
+                    <h3><a href="{{ url_for('new_login') }}">Add New Login</a></h3>
+                </div>
+            </div>
+
+            <div class="val-box">
+                <div>
+                    <h3><a href="{{ url_for('view') }}">View All Users</a></h3>
+                </div>
+            </div>
+
+            <div class="val-box">
+                <div>
+                    <h3><a href="{{ url_for('modify') }}">Modify Users</a></h3>
+                </div>
+            </div>
+
+            <div class="val-box">
+                <div>
+                    <h3><a href="{{ url_for('delete') }}">Delete Users</a></h3>
+                </div>
+            </div>
+        </div>
+
+        
+
+{% endblock content %}
+
