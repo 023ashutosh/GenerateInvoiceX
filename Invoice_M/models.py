@@ -40,6 +40,22 @@ class UserRegistration(db.Model, UserMixin):
    def get_id(self):
       return str(self.Email)
    
+
+class SalaryDetails(db.Model):
+    email = db.Column(db.String(120), db.ForeignKey('user_registration.Email'), primary_key=True, unique=True, nullable=False)
+    month = db.Column(db.Integer, primary_key=True, nullable=False)
+    year = db.Column(db.Integer, primary_key=True, nullable=False)
+    base_salary = db.Column(db.Integer, nullable=False)
+    taxes = db.Column(db.Integer, nullable=False)
+    bonuses = db.Column(db.Integer, nullable=False)
+    allowances = db.Column(db.Integer, nullable=False)
+    total_salary = db.Column(db.Integer, nullable=False)  # New field for total salary
+    working_days = db.Column(db.Integer, default=26, nullable=False)  # Default value for now
+
+    def __repr__(self):
+        return f"SalaryDetails('{self.email}', '{self.month}', '{self.year}', '{self.base_salary}', '{self.taxes}', '{self.bonuses}', '{self.allowances}', '{self.total_salary}')"
+
+   
 # For terminal
 
 # python
